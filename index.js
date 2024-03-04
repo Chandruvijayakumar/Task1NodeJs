@@ -1,5 +1,7 @@
-import express from "express";
-
+import express, { json } from "express";
+import fs from 'fs'
+import { format } from "date-fns";
+import { send } from "process";
 const app = express();
 const PORT = 4000; //https://localhost:4000
 
@@ -19,6 +21,16 @@ app.get("/books", (req, res) =>{
     ];
     res.json(books);
 });
+
+app.get('/write-read', (req, res) => {
+    let today = format(new Date(), 'dd-mm-yyyy-HH-MM-ss');
+    console.log("Today : ", today);
+    const filePath = `TimeStamp/${today}.txt`;
+
+    fs.writeFileSync(filePath, `${today}`, 'utf8')
+    let data = fs.readFileSync(filePath , 'utf8');
+    res.status(200), send()
+})
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 }); //running
