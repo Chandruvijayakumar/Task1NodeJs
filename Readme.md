@@ -8,18 +8,17 @@ This is a simple Express application that generates a timestamp, saves it to a t
 
 Find the code and documentation in the [Task1NodeJs GitHub Repository](https://github.com/Chandruvijayakumar/Task1NodeJs).
 
-1. **Install Dependencies:**
+1. ## Install Dependencies:
    ```bash
    npm init Yes
    ```
 
 2. ## Run the Server
 
-To start the server, run the following command in your terminal:
-
-```bash
-npm start
-```
+**To start the server, run the following command in your terminal:**
+   ```bash
+   npm start
+   ```
 ## Usage
 
 1. **Generate Timestamp**
