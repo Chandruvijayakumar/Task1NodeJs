@@ -10,7 +10,7 @@ Find the code and documentation in the [Task1NodeJs GitHub Repository](https://g
 
 1. **Install Dependencies:**
    ```bash
-   npm install
+   npm init Yes
    ```
 
 2. ## Run the Server

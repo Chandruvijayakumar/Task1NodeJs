@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import path from "path";
 
 const app = express();
-const PORT = 4000;
+const PORT = 8000;
 
 app.get("/", (req, res) => {
   let today = format(new Date(), "dd-MM-yyyy HH-mm-ss");
@@ -58,7 +58,44 @@ app.get("/getTextFiles", (req, res) => {
         .send("An error occurred while listing the files from directory");
     } else {
       const textFiles = files.filter((file) => path.extname(file) === ".txt");
-      res.status(200).json(textFiles);
+
+      // HTML content with styles for getTextFiles
+      const styledTextFiles = `
+        <html>
+          <head>
+            <title>Text Files List</title>
+            <style>
+              body {
+                font-family: 'Arial', sans-serif;
+                background-color: #dfe6e9;
+                color: #2d3436;
+                text-align: center;
+                padding: 20px;
+              }
+              h1 {
+                color: #2c3e50;
+              }
+              ul {
+                list-style-type: none;
+                padding: 0;
+              }
+              li {
+                margin-bottom: 10px;
+                font-size: 16px;
+              }
+            </style>
+          </head>
+          <body>
+            <h1>Text Files List</h1>
+            <p>Date and Time: ${format(new Date(), "dd-MM-yyyy HH:mm:ss")}</p>
+            <ul>
+              ${textFiles.map((file) => `<li>${file}</li>`).join("")}
+            </ul>
+          </body>
+        </html>
+      `;
+
+      res.status(200).send(styledTextFiles);
     }
   });
 });
