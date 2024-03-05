@@ -13,7 +13,7 @@
     "my-file",
     "system"
   ],
-  "author": "chandru",
+  "author": "chan",
   "license": "ISC",
   "dependencies": {
     "date-fns": "^3.3.1",
