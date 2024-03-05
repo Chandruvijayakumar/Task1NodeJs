@@ -7,7 +7,7 @@ const app = express();
 const PORT = 4000;
 
 app.get("/", (req, res) => {
-  let today = format(new Date(), "dd-mm-yyyy HH:mm:ss");
+  let today = format(new Date(), "dd-MM-yyyy HH-mm-ss");
   let message = "Generated at: ";
   let content = `${message}${today}`;
 
